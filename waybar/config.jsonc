@@ -1,0 +1,25 @@
+{
+	"height": 20,
+	// custom
+	"modules-left":		["hyprland/window"],
+	"modules-center": 	["hyprland/workspaces"],
+	"modules-right":	["clock", "cpu", "disk", "memory", "network", "temperature", "idle_inhibitor"],
+	// maybe add wlr-taskbar and/or river(require config down bellow, so wasn't feasable at first)
+
+	"margin": 10,
+	"spacing": 5,
+	"name": "hans",
+	"mode": "dock",
+	"reload_style_on_change": true,
+	
+	// configure modules
+	"hyprland/window": {
+		"format": "{}",
+		"rewrite": {
+			"(.*)Firefox": "🌎$1",
+			"nvim (.*)": ">[$1]",
+			"sudo(.*)": "⚠️$1⚠️",
+			"(.*)Blender(.*)": "$1 Blender",
+		}
+	}
+}
