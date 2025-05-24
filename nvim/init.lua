@@ -1,75 +1,32 @@
--- Load LazyVim (must be first to avoid missing dependencies)
 require("config.lazy")
+cmp = require("cmp")
 
--- Setup lazy.nvim (ensure LazyVim is included here)
-require("lazy").setup({
-    -- LazyVim core
-    { "folke/LazyVim", priority = 1000 },
-
-    -- Lualine and its dependencies
-    {
-        "nvim-lualine/lualine.nvim",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-        config = function()
-            require("lualine").setup({
-                options = {
-                    theme = "auto",
-                    section_separators = { left = "", right = "" },
-                    component_separators = { left = "", right = "" },
-                },
-            })
+cmp.setup({
+    snippet = {
+        expand = function(args)
+            require("luasnip").lsp_expand(args.body)
         end,
     },
-
-    -- Treesitter (with deduplication support)
-    {
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
-        config = function(_, opts)
-            if type(opts.ensure_installed) == "table" then
-                opts.ensure_installed = LazyVim.dedup(opts.ensure_installed)
-            end
-            require("nvim-treesitter.configs").setup(opts)
-        end,
-        opts = {
-            ensure_installed = {
-                "bash",
-                "c",
-                "cpp",
-                "lua",
-                "python",
-                "vim",
-                "yaml",
-            },
-            highlight = { enable = true },
-            indent = { enable = true },
-        },
+    mapping = {
+        ["<C-Tab>"] = cmp.mapping.complete(),
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+    },
+    sources = {
+        { name = "nvim_lsp" },
+        { name = "buffer" },
+        { name = "path" },
     },
 })
 
+-- theme
+vim.cmd.colorscheme("unokai")
 
--- Enable line numbers
-vim.opt.number = true
-vim.opt.relativenumber = true
+-- line numbers
+vim.o.relativenumber = true
+vim.o.number = true
 
--- Use 4 spaces for tabs
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-
--- Highlight current line
-vim.opt.cursorline = true
-
--- Smooth scrolling
-vim.opt.scrolloff = 8
-
--- System clipboard support
-vim.opt.clipboard:append("unnamedplus")
-
-
-vim.cmd("syntax on")
-vim.opt.termguicolors = true
-vim.cmd("colorscheme unokai")
-
-
-
+-- tab 4 space
+vim.o.tabstop = 4
+vim.o.expandtab = true
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
