@@ -1,0 +1,58 @@
+{
+	"height": 60,
+	// custom
+	"modules-left":		["image#Status", "hyprland/window"],
+	"modules-center": 	["hyprland/workspaces"],
+	"modules-right":	["custom/KirbysDreamland","image#prev", "image#PausePlay", "image#Next"],
+	// maybe add wlr-taskbar and/or river(require config down bellow, so wasn't feasable at first)
+
+	"margin": 10,
+	"spacing": 5,
+	"name": "hans",
+	"mode": "dock",
+	"reload_style_on_change": true,
+	"image#Status": {
+        "exec": "~/.config/waybar/scripts/KirbyStatus.sh",
+        "interval": 1,
+        "size": 50,
+        "on-click": "~/.config/waybar/scripts/KirbyPoyo.sh"
+    },
+	"hyprland/window": {
+		"format": "{}",
+		"rewrite": {
+			"(.*)Firefox": "🌎$1",
+			"nvim (.*)": ">[$1]",
+			"sudo(.*)": "⚠️$1⚠️",
+			"(.*)Blender(.*)": "$1 Blender",
+            "(.*)-(.*)": "$1"
+		}
+	},
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+        },
+        "persistent-workspaces":{
+            "*": 10
+        }
+    },
+    "custom/KirbyDreamland": {
+        
+    },
+    "image#prev": {
+        "path": "/home/spinningdisk/.config/waybar/img/Prev.png",
+        "size": 40,
+        "on-click": "playerctl previous"
+    },
+    "image#PausePlay": {
+        "path": "/home/spinningdisk/.config/waybar/img/PausePlay.png",
+        "size": 40,
+        "on-click": "playerctl play-pause"
+    },
+    "image#Next": {
+        "path": "/home/spinningdisk/.config/waybar/img/Next.png",
+        "size": 40,
+        "on-click": "playerctl next"
+    }
+
+	// configure modules
+}
