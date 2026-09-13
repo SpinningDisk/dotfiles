@@ -7,7 +7,7 @@ if [[ $full_song == "spotify xesam:title"* ]] ;then
     song=$(echo $song | sed -e 's/^[ \t]*//')
     
     artist_prefix="spotify xesam:artist"
-    full_artist=$(playerctl metadata | grep "xesam:artist" |  sed -e 's/^[ \w]*//')
+    full_artist=$(playerctl --player=spotify metadata | grep "xesam:artist" |  sed -e 's/^[ \w]*//')
     artist=${full_artist#"$artist_prefix"}
     artist=$(echo $artist | sed -e 's/^[ \t]*//') 
 

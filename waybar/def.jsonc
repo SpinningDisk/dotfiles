@@ -1,33 +1,40 @@
 // -*- mode: jsonc -*-
 {
     // "layer": "top", // Waybar at top layer
-    // "position": "top", // Waybar position (top|bottom|left|right)
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "hyprland/workspaces",
-        "hyprland/mode",
-        "hyprland/scratchpad",
+        "sway/workspaces",
+        "sway/mode",
+        "sway/scratchpad",
         "custom/media"
     ],
     "modules-center": [
-       "hyprland/awindow"
+        "sway/window"
     ],
     "modules-right": [
+        "mpd",
+        "idle_inhibitor",
+        "pulseaudio",
+        "network",
         "power-profiles-daemon",
         "cpu",
         "memory",
         "temperature",
         "backlight",
+        "keyboard-state",
+        "sway/language",
         "battery",
+        "battery#bat2",
         "clock",
         "tray",
         "custom/power"
     ],
     // Modules configuration
-    // "hyprland/workspaces": {
+    // "sway/workspaces": {
     //     "disable-scroll": true,
     //     "all-outputs": true,
     //     "warp-on-scroll": false,
@@ -52,10 +59,10 @@
             "unlocked": ""
         }
     },
-    "hyprland/mode": {
+    "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
-    "hyprland/scratchpad": {
+    "sway/scratchpad": {
         "format": "{icon} {count}",
         "show-empty": false,
         "format-icons": ["", ""],
@@ -97,7 +104,11 @@
     },
     "tray": {
         // "icon-size": 21,
-        "spacing": 10
+        "spacing": 10,
+        // "icons": {
+        //   "blueman": "bluetooth",
+        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+        // }
     },
     "clock": {
         // "timezone": "America/New_York",

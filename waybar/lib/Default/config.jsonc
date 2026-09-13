@@ -13,7 +13,10 @@
 	"reload_style_on_change": true,
 	
 	// configure modules
-	"hyprland/window": {
+	"clock": {
+        "timezone": "Europe/Berlin"
+    },
+    "hyprland/window": {
 		"format": "{}",
 		"rewrite": {
 			"(.*)Firefox": "🌎$1",
@@ -42,16 +45,19 @@
     },
     "image#prev": {
         "path": "/home/spinningdisk/.config/waybar/img/Prev.png",
+        "interval": 1000,
         "size": 40,
         "on-click": "playerctl --player=spotify previous"
     },
     "image#PausePlay": {
         "path": "/home/spinningdisk/.config/waybar/img/PausePlay.png",
+        "interval": 1000,
         "size": 40,
         "on-click": "playerctl --player=spotify play-pause"
     },
     "image#Next": {
         "path": "/home/spinningdisk/.config/waybar/img/Next.png",
+        "interval": 1000,
         "size": 40,
         "on-click": "playerctl --player=spotify next"
     }

@@ -39,17 +39,20 @@
         
     },
     "image#prev": {
-        "path": "/home/spinningdisk/.config/waybar/img/Prev.png",
+        // "path": "/home/spinningdisk/.config/waybar/img/Prev.png",
         "size": 40,
+        "interval": 1000,
         "on-click": "playerctl previous"
     },
     "image#PausePlay": {
         "path": "/home/spinningdisk/.config/waybar/img/PausePlay.png",
+        "interval": 1000,
         "size": 40,
         "on-click": "playerctl play-pause"
     },
     "image#Next": {
-        "path": "/home/spinningdisk/.config/waybar/img/Next.png",
+        // "path": "/home/spinningdisk/.config/waybar/img/Next.png",
+        "interval": 1000,
         "size": 40,
         "on-click": "playerctl next"
     }
